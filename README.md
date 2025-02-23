@@ -1,103 +1,76 @@
+# GitHub Cleaner
 
----
+Uma ferramenta para gerenciar e limpar seus repositórios fork do GitHub de forma eficiente.
 
-# **GitHub Fork Cleaner**
+## Funcionalidades
 
-Uma ferramenta Python simples para ajudar a organizar sua conta do GitHub, removendo repositórios forkados e mantendo apenas os repositórios que você criou. Antes de excluir os forks, o script adiciona uma estrela (star) como forma de registrar que você utilizou ou apreciou o repositório.
+- Interface gráfica moderna e intuitiva
+- Visualização de todos os seus repositórios fork
+- Adiciona uma estrela automaticamente antes de remover um fork
+- Gerenciamento seguro de credenciais
+- Feedback visual do progresso das operações
 
----
+## Requisitos
 
-## **Por que usar este script?**
-Se sua conta do GitHub está cheia de repositórios forkados e você deseja mantê-la organizada, este script é uma solução automatizada para:
-- Identificar repositórios forkados.
-- Adicionar uma estrela (star) a eles.
-- Excluir os repositórios forkados, mantendo apenas os criados por você.
+- Python 3.7 ou superior
+- Token de acesso pessoal do GitHub com permissões para gerenciar repositórios
 
----
+## Instalação
 
-## **Pré-requisitos**
-1. Python 3.6 ou superior instalado.
-2. Biblioteca `requests` instalada:
-   ```bash
-   pip install requests
-   ```
-3. Um token de acesso pessoal (PAT) do GitHub com as seguintes permissões:
-   - `repo`: Acesso a repositórios públicos e privados.
-   - `delete_repo`: Permissão para excluir repositórios.
-   - `write:star`: Permissão para adicionar estrelas.
-
----
-
-## **Como obter o token do GitHub?**
-1. Acesse suas configurações no GitHub.
-2. Vá até **Developer settings** > **Personal access tokens** > **Tokens (classic)**.
-3. Clique em **Generate new token** e selecione as permissões mencionadas acima.
-4. Salve o token gerado (ele será exibido apenas uma vez).
-
-Para mais detalhes, veja o guia completo [aqui](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-
----
-
-## **Configuração**
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/seu_usuario/github-fork-cleaner.git
-   ```
-2. Edite o arquivo `fork_cleaner.py` e substitua:
-   - `seu_usuario` pelo seu nome de usuário do GitHub.
-   - `seu_token` pelo token gerado.
-
----
-
-## **Uso**
-1. Execute o script:
-   ```bash
-   python fork_cleaner.py
-   ```
-2. O script irá:
-   - Listar todos os seus repositórios.
-   - Identificar quais são forks.
-   - Adicionar uma estrela aos forks.
-   - Excluir os forks (após confirmação).
-
----
-
-## **Exemplo de Execução**
+1. Clone o repositório:
 ```bash
-Buscando repositórios...
-Encontrados 50 repositórios.
-Encontrados 10 forks para processar.
-Tem certeza de que deseja adicionar uma estrela e excluir 10 forks? (sim/não): sim
-Estrela adicionada ao repositório user/repo1.
-Repositório user/repo1 excluído com sucesso.
-...
-Processo concluído.
+git clone https://github.com/seu-usuario/cleaner-fork-github.git
+cd cleaner-fork-github
 ```
 
----
+2. Instale as dependências:
+```bash
+pip install -r requirements.txt
+```
 
-## **Aviso**
-- As exclusões são permanentes. Certifique-se de que não há informações importantes nos forks antes de executar o script.
-- Use este script por sua conta e risco.
+3. Configure suas credenciais:
+- Renomeie o arquivo `.env.example` para `.env`
+- Edite o arquivo `.env` e adicione suas credenciais:
+  ```
+  GITHUB_USERNAME=seu_usuario_github
+  GITHUB_TOKEN=seu_token_github
+  ```
 
----
+## Uso
 
-## **Contribuições**
-Contribuições são bem-vindas! Se você encontrou um bug ou tem uma ideia para melhorar este script, fique à vontade para abrir uma issue ou enviar um pull request.
+### Interface Gráfica (Recomendado)
 
----
+Execute o aplicativo com interface gráfica:
+```bash
+python app_gui.py
+```
 
-## **Licença**
-Este projeto está licenciado sob a [MIT License](LICENSE).
+A interface gráfica permite:
+- Configurar suas credenciais do GitHub
+- Visualizar todos os seus forks
+- Remover forks individualmente
+- Acompanhar o progresso das operações
 
----
+### Linha de Comando
 
-## **Contato**
-Se você tiver dúvidas ou precisar de ajuda, entre em contato:
-- **Email**: dougdotcon@gmail.com
-- **GitHub**: [dougdotcon](https://github.com/dougdotcon)
+Se preferir, você ainda pode usar a versão em linha de comando:
+```bash
+python app.py
+```
 
----
+## Segurança
 
-## **Inspirado por minha própria jornada**
-Este projeto nasceu da minha necessidade de organizar meu próprio GitHub, que estava desorganizado por falta de prática. Espero que ele também possa ajudar você! 😄
+- Nunca compartilhe seu token do GitHub
+- Mantenha o arquivo `.env` seguro e não o inclua em commits
+- O token do GitHub deve ter apenas as permissões necessárias
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para:
+- Reportar bugs
+- Sugerir novas funcionalidades
+- Enviar pull requests
+
+## Licença
+
+Este projeto está licenciado sob a MIT License - veja o arquivo LICENSE para detalhes.
